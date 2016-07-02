@@ -1,0 +1,16 @@
+<div class="jumbotron">
+  <h1><%= @group.name %></h1>
+  <table>
+  <% @group.students.each do |student| %>
+  <tr>
+    <td><p><%= student.name %></p></td>
+    <td><%= link_to "delete link goes here" %></td>
+  </tr>
+  <% end %>
+  </table>
+  <%= form_tag("/students", method: "post") do %>
+    <%= text_field_tag(:name, nil, placeholder: "name") %>
+    <%= hidden_field_tag(:group_id, @group.id) %>
+    <%= submit_tag("Add Student") %>
+  <% end %>
+</div>
