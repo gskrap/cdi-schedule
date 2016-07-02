@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <h1><%= @group.name %></h1>
+  <table id="student-list">
+  <% @group.students.each do |student| %>
+  <tr class="student-row">
+    <td><button class="btn btn-default attendance-btn">Here?</button></td>
+    <td class="student-name"><p><%= student.name %></p></td>
+  </tr>
+  <% end %>
+  </table>
+  <%= form_tag("/students", method: "post") do %>
+    <%= text_field_tag(:name, nil, placeholder: "name") %>
+    <%= hidden_field_tag(:group_id, @group.id) %>
+    <%= submit_tag("Add Student", class: "btn btn-primary") %>
+  <% end %>
+  <%= link_to "Edit #{@group.name}", edit_group_path(@group) %>
+</div>
