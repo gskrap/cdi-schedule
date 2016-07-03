@@ -24,6 +24,7 @@ class TeachersController < ApplicationController
   # POST /teachers
   # POST /teachers.json
   def create
+    binding.pry
     @teacher = Teacher.new(teacher_params)
 
     respond_to do |format|
@@ -69,6 +70,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.fetch(:teacher, {})
+      params.require(:teacher).permit(:first_name, :last_name, :email, :phone_number, :bio, :arriving, :leaving)
     end
 end

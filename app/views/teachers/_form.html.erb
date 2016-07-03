@@ -12,26 +12,55 @@
   <% end %>
 
   <div class="actions">
-    <%= f.label :first_name %>:
-    <%= f.text_field :first_name %><br />
-
-    <%= f.label :last_name %>:
-    <%= f.text_field :last_name %><br />
-
-    <%= f.label :email %>:
-    <%= f.email_field :email %><br />
-
-    <%= f.label :phone %>:
-    <%= f.email_field :phone_number %><br />
-
-    <%= f.label :bio %>:
-    <%= f.text_area :bio %><br />
+    <%= f.text_field :first_name, placeholder: "First Name" %><br />
+    <%= f.text_field :last_name, placeholder: "Last Name" %><br />
+    <%= f.email_field :email, placeholder: "Email" %><br />
+    <%= f.text_field :phone_number, placeholder: "Phone Number" %><br />
+    <%= f.text_area :bio, placeholder: "Bio" %><br />
 
     <%= f.label :arriving %>:
-    <%= f.datetime_select :arriving %><br />
+    <div class="container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker1'>
+                        <%= f.text_field :arriving, class: "form-control" %>
+                        <!-- <input type='text' class="form-control" /> -->
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker();
+                });
+            </script>
+        </div>
+    </div>
 
     <%= f.label :leaving %>:
-    <%= f.datetime_select :leaving %><br />
-    <%= f.submit "Submit" %>
+    <div class="container">
+        <div class="row">
+            <div class='col-sm-6'>
+                <div class="form-group">
+                    <div class='input-group date' id='datetimepicker2'>
+                        <%= f.text_field :leaving, class: "form-control" %>
+                        <!-- <input type='text' class="form-control" /> -->
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker2').datetimepicker();
+                });
+            </script>
+        </div>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
