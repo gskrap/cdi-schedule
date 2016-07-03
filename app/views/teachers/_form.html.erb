@@ -24,8 +24,14 @@
     <%= f.label :phone %>:
     <%= f.email_field :phone_number %><br />
 
+    <%= f.label :bio %>:
+    <%= f.text_area :bio %><br />
+
     <%= f.label :arriving %>:
     <%= f.datetime_select :arriving %><br />
+
+    <%= f.label :leaving %>:
+    <%= f.datetime_select :leaving %><br />
     <%= f.submit "Submit" %>
   </div>
 <% end %>
