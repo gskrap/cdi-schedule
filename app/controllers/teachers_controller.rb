@@ -24,7 +24,6 @@ class TeachersController < ApplicationController
   # POST /teachers
   # POST /teachers.json
   def create
-    binding.pry
     @teacher = Teacher.new(teacher_params)
 
     respond_to do |format|
