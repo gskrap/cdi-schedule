@@ -28,7 +28,7 @@ class DanceClassesController < ApplicationController
 
     respond_to do |format|
       if @dance_class.save
-        format.html { redirect_to @dance_class, notice: 'Dance class was successfully created.' }
+        format.html { redirect_to dance_classes_path, notice: 'Dance class was successfully created.' }
         format.json { render :show, status: :created, location: @dance_class }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DanceClassesController < ApplicationController
   def update
     respond_to do |format|
       if @dance_class.update(dance_class_params)
-        format.html { redirect_to @dance_class, notice: 'Dance class was successfully updated.' }
+        format.html { redirect_to dance_classes_path, notice: 'Dance class was successfully updated.' }
         format.json { render :show, status: :ok, location: @dance_class }
       else
         format.html { render :edit }
@@ -69,6 +69,6 @@ class DanceClassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dance_class_params
-      params.fetch(:dance_class, {})
+      params.require(:dance_class).permit(:name, :teacher_id, :location_id, :group_id, :style, :start, :end)
     end
 end

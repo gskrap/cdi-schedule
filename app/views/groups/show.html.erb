@@ -1,17 +1,19 @@
-<div class="jumbotron">
+<div class="jumbotron mobile-jumbo">
   <h1><%= @group.name %></h1>
   <table id="student-list">
-  <% @group.students.each do |student| %>
-  <tr class="student-row">
-    <td class="attendance-btn"><button class="btn btn-default">Here?</button></td>
-    <td class="student-name"><p><%= student.name %></p></td>
-  </tr>
-  <% end %>
+  <% @group.students.order('last_name').each do |student| %>
+    <tr class="student-row">
+      <td class="attendance-btn"><button class="btn btn-default">Here?</button></td>
+      <td class="student-name"><p><%= student.full_name %></p></td>
+    </tr>
+    <% end %>
   </table>
+  <br>
   <%= form_tag("/students", method: "post") do %>
     <%= text_field_tag(:name, nil, placeholder: "name", class: "student-input") %>
     <%= hidden_field_tag(:group_id, @group.id) %>
     <%= submit_tag("Add Student", class: "btn btn-primary btn-sm") %>
   <% end %>
+  <br>
   <%= link_to "Edit #{@group.name}", edit_group_path(@group) %>
 </div>
