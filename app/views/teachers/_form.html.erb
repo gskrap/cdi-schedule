@@ -1,0 +1,62 @@
+<%= form_for(@teacher, html: {id: "new-teacher-form"}) do |f| %>
+  <% if @teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% @teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.text_field :first_name, placeholder: "First Name" %><br />
+    <%= f.text_field :last_name, placeholder: "Last Name" %><br />
+    <%= f.email_field :email, placeholder: "Email" %><br />
+    <%= f.text_field :phone_number, placeholder: "Phone Number" %><br />
+    <%= f.text_area :bio, placeholder: "Bio" %><br />
+
+    <%= f.label :arriving %>:
+    <div>
+        <div>
+            <div class='input-group date' id='datetimepicker1'>
+                <%= f.text_field :arriving, class: "form-control" %>
+                <!-- <input type='text' class="form-control" /> -->
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker({
+                        format: 'MMMM D, YYYY h:mm a'
+                    });
+                });
+            </script>
+        </div>
+    </div>
+
+    <%= f.label :leaving %>:
+    <div>
+        <div>
+            <div class='input-group date' id='datetimepicker2'>
+                <%= f.text_field :leaving, class: "form-control" %>
+                <!-- <input type='text' class="form-control" /> -->
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker2').datetimepicker({
+                        format: 'MMMM D, YYYY h:mm a'
+                    });
+                });
+            </script>
+        </div>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>
