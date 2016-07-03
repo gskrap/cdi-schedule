@@ -1,3 +1,16 @@
 // Place all the styles related to the locations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#new-location-form {
+  width: 310px;
+  input, textarea {
+    width: 100%;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 4px;
+    resize: none;
+  }
+  textarea {
+    height: 100px;
+  }
+}

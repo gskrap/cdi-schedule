@@ -1,4 +1,15 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+<div class="jumbotron">
+  <p id="notice"><%= notice %></p>
+  <div id="teacher-container">
+    <h1><%= @teacher.full_name %></h1>
+    <h3 id="teacher-bio"><%= @teacher.bio %></h3>
+    <h5><%= @teacher.email %></h5>
+    <h5><%= @teacher.phone_number %></h5>
+    <h5>Arriving: <%= @teacher.arriving.strftime("%B %e, %Y %l:%M %P") %></h5>
+    <h5>Leaving: <%= @teacher.leaving.strftime("%B %e, %Y %l:%M %P") %></h5>
+    <%= link_to 'Edit', edit_teacher_path(@teacher), class: "btn btn-warning btn-xs" %>
+    <%= link_to 'Delete', @teacher, method: :delete, class: "btn btn-danger btn-xs", data: { confirm: 'Are you sure?' } %>
+    <br><br>
+    <div><%= link_to 'back', teachers_path %></div>
+  </div>
+</div>
