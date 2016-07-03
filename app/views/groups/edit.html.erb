@@ -9,9 +9,9 @@
   <% end %>
   </table>
   <%= form_tag("/students", method: "post") do %>
-    <%= text_field_tag(:name, nil, placeholder: "name") %>
+    <%= text_field_tag(:name, nil, placeholder: "name", class: "student-input") %>
     <%= hidden_field_tag(:group_id, @group.id) %>
-    <%= submit_tag("Add Student", class: "btn btn-primary") %>
+    <%= submit_tag("Add Student", class: "btn btn-primary btn-sm") %>
   <% end %>
   <%= link_to "Back", group_path(@group) %>
 </div>

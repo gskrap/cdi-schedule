@@ -11,13 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160702162818) do
+ActiveRecord::Schema.define(version: 20160703014121) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "dance_classes", force: :cascade do |t|
+    t.datetime "start",       null: false
+    t.datetime "end",         null: false
+    t.integer  "group_id"
+    t.integer  "teacher_id"
+    t.integer  "location_id"
+    t.string   "style"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "groups", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -27,6 +44,18 @@ ActiveRecord::Schema.define(version: 20160702162818) do
     t.integer  "group_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string   "first_name",   null: false
+    t.string   "last_name",    null: false
+    t.string   "email"
+    t.string   "phone_number"
+    t.text     "bio"
+    t.datetime "arriving"
+    t.datetime "leaving"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
