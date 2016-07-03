@@ -14,3 +14,27 @@
  *= require_self
  *= require bootstrap-datetimepicker
  */
+
+ a:hover {
+  text-decoration: none;
+ }
+
+ .center {
+  text-align: center;
+ }
+
+ .inline {
+  display: inline-block;
+ }
+
+ .float-right {
+  text-align: right;
+  float: right;
+ }
+
+ @media (max-width:500px) {
+   .mobile-jumbo {
+     padding-left: 5px;
+     padding-right: 5px;
+   }
+ }

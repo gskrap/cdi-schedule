@@ -1,25 +1,26 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Dance Classes</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="jumbotron">
+  <h1>Classes</h1>
+  <p id="notice"><%= notice %></p>
     <% @dance_classes.each do |dance_class| %>
-      <tr>
-        <td><%= link_to 'Show', dance_class %></td>
-        <td><%= link_to 'Edit', edit_dance_class_path(dance_class) %></td>
-        <td><%= link_to 'Destroy', dance_class, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="class-container">
+        <div><h2><%= link_to dance_class.name, dance_class %></h2></div>
+        <div class="dance-style"><h7><%= dance_class.style %></h7></div>
+        <div class="inline">
+          <h5><%= dance_class.teacher.full_name %></h5>
+          <h5><%= dance_class.location.name %></h5>
+          <h5><%= dance_class.group.name %></h5>
+        </div>
+        <div class="inline float-right">
+          <h5><%= dance_class.start.strftime("%B %e") %></h5>
+          <h5><%= dance_class.start.strftime("%I:%M %P") %></h5>
+          <h5>- <%= dance_class.end.strftime("%I:%M %P") %></h5>
+        </div>
+        <div>
+          <%= link_to 'Edit', edit_dance_class_path(dance_class), class: "btn btn-warning btn-xs" %>
+          <%= link_to 'Delete', dance_class, method: :delete, class: "btn btn-danger btn-xs", data: { confirm: 'Are you sure? ' } %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Dance class', new_dance_class_path %>
+  <br><br>
+  <%= link_to 'New Dance class', new_dance_class_path, class: "btn btn-primary btn-sm" %>
+</div>

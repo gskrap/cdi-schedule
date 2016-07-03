@@ -1,4 +1,4 @@
-<%= form_for(@dance_class) do |f| %>
+<%= form_for(@dance_class, html: {id: "new-class-form"}) do |f| %>
   <% if @dance_class.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@dance_class.errors.count, "error") %> prohibited this dance_class from being saved:</h2>
@@ -12,6 +12,51 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.text_field :name, placeholder: "Name" %><br />
+    <%= f.collection_select :teacher_id, Teacher.order(:last_name),:id,:full_name, include_blank: true, prompt: "Teacher" %><br />
+    <%= f.collection_select :location_id, Location.order(:name),:id,:name, include_blank: true, prompt: "Location" %><br />
+    <%= f.collection_select :group_id, Group.order(:name),:id,:name, include_blank: true, prompt: "Group" %><br />
+    <%= f.text_field :style, placeholder: "Style" %><br />
+
+    <%= f.label :start %>:
+    <div>
+        <div>
+            <div class='input-group date' id='datetimepicker1'>
+                <%= f.text_field :start, value: (@dance_class.start.strftime("%B %e, %Y %l:%M %P") if @dance_class.start), class: "form-control" %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker1').datetimepicker({
+                        format: 'MMMM D, YYYY h:mm a',
+                        stepping: 5
+                    });
+                });
+            </script>
+        </div>
+    </div>
+
+    <%= f.label :end %>:
+    <div>
+        <div>
+            <div class='input-group date' id='datetimepicker2'>
+                <%= f.text_field :end, value: (@dance_class.end.strftime("%B %e, %Y %l:%M %P") if @dance_class.end), class: "form-control" %>
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $('#datetimepicker2').datetimepicker({
+                        format: 'MMMM D, YYYY h:mm a',
+                        stepping: 5
+                    });
+                });
+            </script>
+        </div>
+    </div>
+    <%= f.submit 'Submit', class: "btn btn-primary" %>
   </div>
 <% end %>
