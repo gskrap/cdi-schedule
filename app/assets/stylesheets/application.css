@@ -15,6 +15,13 @@
  *= require bootstrap-datetimepicker
  */
 
+ body {
+  background: url("cdi-wallpaper2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+ }
+
  a:hover {
   text-decoration: none;
  }
@@ -32,9 +39,29 @@
   float: right;
  }
 
+ .vert-top {
+  vertical-align: text-top;
+ }
+
+ .spaced {
+  margin-right: 20px;
+ }
+
+ #notice {
+  margin-top: 15px;
+ }
+
+ .navbar-brand {
+  margin-top: -4px;
+ }
+
  @media (max-width:500px) {
    .mobile-jumbo {
      padding-left: 5px;
      padding-right: 5px;
+   }
+   .jumbotron {
+    margin-left: 10px;
+    margin-right: 10px;
    }
  }

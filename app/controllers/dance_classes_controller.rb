@@ -4,7 +4,9 @@ class DanceClassesController < ApplicationController
   # GET /dance_classes
   # GET /dance_classes.json
   def index
-    @dance_classes = DanceClass.all
+    @group_a_classes = Group.find_by(name: "Group A").dance_classes.order('start')
+    @group_b_classes = Group.find_by(name: "Group B").dance_classes.order('start')
+    @days = DanceClass.all.map{ |c| c.start.to_date }.uniq
   end
 
   # GET /dance_classes/1

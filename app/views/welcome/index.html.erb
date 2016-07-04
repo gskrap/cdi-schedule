@@ -1,5 +1,7 @@
-<div class="jumbotron">
-
-welcome - index
-
+<div class="center">
+  <% Group.all.each do |group|%>
+    <div class="btn-huge inline">
+      <div class="btn-huge-link"><h1><%= link_to group.name, group_schedule_path(group), class: "link-text" %></h1></div>
+    </div>
+  <% end %>
 </div>
