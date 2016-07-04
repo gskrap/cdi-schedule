@@ -1,8 +1,37 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .jumbotron {
   padding: 30px;
+  margin-top: -25px;
+  margin-left: 60px;
+  margin-right: 60px;
 }
 
+.btn-huge {
+  background-color: #B6DEFF;
+  border-radius: 10px;
+  width: 310px;
+  height: 200px;
+  margin: 20px;
+}
+
+.btn-huge-link {
+  color: #222222;
+  margin-top: 58px;
+  h1 {
+    font-size: 72px;
+    font-weight: bold;
+  }
+  :visited {
+    color: #222222;
+  }
+}
+
+@media (max-width:500px) {
+  .btn-huge {
+    margin-top: 45px;
+  }
+  .btn-huge-link {
+    h1 {
+      font-size: 72px;
+    }
+  }
+}

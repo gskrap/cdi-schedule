@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <h1><%= @group.name %></h1>
+  <div class="vert-top">
+    <div class="inline vert-top spaced">
+      <% @days.each do |day| %>
+        <div class="top-spaced"><h5 class="date-tab"><%= day.strftime('%A, %B %e') %></h5></div>
+        <% classes = @classes.select{|c| c.class_day == day} %>
+        <% classes.each do |dance_class| %>
+          <div class="class-container">
+            <div><h2><%= dance_class.name %></h2></div>
+            <div class="dance-style"><h7><%= dance_class.style %></h7></div>
+            <div class="inline">
+              <h5><%= dance_class.teacher.full_name %></h5>
+              <h5><%= dance_class.location.name %></h5>
+              <h5><%= dance_class.group.name %></h5>
+            </div>
+            <div class="inline float-right">
+              <h5><%= dance_class.start.strftime("%B %e") %></h5>
+              <h5><%= dance_class.start.strftime("%I:%M %P") %></h5>
+              <h5><%= dance_class.end.strftime("%I:%M %P") %></h5>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
