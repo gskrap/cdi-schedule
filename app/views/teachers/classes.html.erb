@@ -1,9 +1,9 @@
 <div class="jumbotron">
-  <h1>Classes</h1>
+  <h1><%= @teacher.first_name %>'s Classes</h1>
   <p id="notice"><%= notice %></p>
-  <% @dance_classes.each do |dance_class| %>
+  <% @teacher.dance_classes.each do |dance_class| %>
     <div class="class-container">
-      <div><h2><%= link_to dance_class.name, dance_class %></h2></div>
+      <div><h2><%= dance_class.name %></h2></div>
       <div class="dance-style"><h7><%= dance_class.style %></h7></div>
       <div class="inline">
         <h5><%= dance_class.teacher.full_name %></h5>
@@ -15,14 +15,8 @@
         <h5><%= dance_class.start.strftime("%I:%M %P") %></h5>
         <h5>- <%= dance_class.end.strftime("%I:%M %P") %></h5>
       </div>
-      <div>
-        <%= link_to 'Edit', edit_dance_class_path(dance_class), class: "btn btn-warning btn-xs" %>
-        <%= link_to 'Delete', dance_class, method: :delete, class: "btn btn-danger btn-xs", data: { confirm: 'Are you sure? ' } %>
-      </div>
     </div>
   <% end %>
-  <br><br>
-  <%= link_to 'New Dance class', new_dance_class_path, class: "btn btn-primary btn-sm" %>
-  <br><br>
-  <%= link_to 'back', admin_path %>
+  <br>
+  <%= link_to 'back', hours_path %>
 </div>
