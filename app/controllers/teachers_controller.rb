@@ -4,7 +4,7 @@ class TeachersController < ApplicationController
   # GET /teachers
   # GET /teachers.json
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.all.order('last_name')
   end
 
   # GET /teachers/1
@@ -59,6 +59,19 @@ class TeachersController < ApplicationController
       format.html { redirect_to teachers_url, notice: 'Teacher was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def classes
+    @teacher = Teacher.find(params['teacher_id'])
+  end
+
+  def pickups
+    @teachers = Teacher.all.order('arriving')
+    @days = Teacher.all.map{ |t| t.arriving.to_date }.uniq
+  end
+
+  def hours
+    @teachers = Teacher.all.order('last_name')
   end
 
   private
