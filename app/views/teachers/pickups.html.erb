@@ -1,0 +1,14 @@
+<div class="jumbotron">
+  <h1>Pickups</h1>
+  <% @days.each do |day| %>
+    <div class="pickup-container">
+      <h2><%= day.strftime('%A, %B %e') %></h2>
+      <% teachers = @teachers.select{|t| t.arriving_day == day} %>
+      <% teachers.each do |teacher| %>
+        <h4><%= teacher.arriving.strftime('%I:%M %P')+" - "+teacher.full_name %></h4>
+      <% end %>
+    </div>
+  <% end %>
+  <br>
+  <%= link_to 'back', admin_path %>
+</div>

@@ -65,6 +65,11 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params['teacher_id'])
   end
 
+  def pickups
+    @teachers = Teacher.all.order('arriving')
+    @days = Teacher.all.map{ |t| t.arriving.to_date }.uniq
+  end
+
   def hours
     @teachers = Teacher.all.order('last_name')
   end
