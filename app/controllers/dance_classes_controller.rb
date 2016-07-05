@@ -4,6 +4,7 @@ class DanceClassesController < ApplicationController
   # GET /dance_classes
   # GET /dance_classes.json
   def index
+    render '/404' if !( logged_in? && current_user.admin? )
     @group_a_classes = Group.find_by(name: "Group A").dance_classes.order('start')
     @group_b_classes = Group.find_by(name: "Group B").dance_classes.order('start')
     @days = DanceClass.all.map{ |c| c.start.to_date }.uniq
@@ -12,20 +13,24 @@ class DanceClassesController < ApplicationController
   # GET /dance_classes/1
   # GET /dance_classes/1.json
   def show
+    render '/404' if !( logged_in? && current_user.admin? )
   end
 
   # GET /dance_classes/new
   def new
+    render '/404' if !( logged_in? && current_user.admin? )
     @dance_class = DanceClass.new
   end
 
   # GET /dance_classes/1/edit
   def edit
+    render '/404' if !( logged_in? && current_user.admin? )
   end
 
   # POST /dance_classes
   # POST /dance_classes.json
   def create
+    render '/404' if !( logged_in? && current_user.admin? )
     @dance_class = DanceClass.new(dance_class_params)
 
     respond_to do |format|
@@ -42,6 +47,7 @@ class DanceClassesController < ApplicationController
   # PATCH/PUT /dance_classes/1
   # PATCH/PUT /dance_classes/1.json
   def update
+    render '/404' if !( logged_in? && current_user.admin? )
     respond_to do |format|
       if @dance_class.update(dance_class_params)
         format.html { redirect_to dance_classes_path, notice: 'Dance class was successfully updated.' }
@@ -56,6 +62,7 @@ class DanceClassesController < ApplicationController
   # DELETE /dance_classes/1
   # DELETE /dance_classes/1.json
   def destroy
+    render '/404' if !( logged_in? && current_user.admin? )
     @dance_class.destroy
     respond_to do |format|
       format.html { redirect_to dance_classes_url, notice: 'Dance class was successfully destroyed.' }

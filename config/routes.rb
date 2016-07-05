@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   post    'students'      => 'students#post'
   delete  'students'      => 'students#delete'
   get     'admin'         => 'admin#show'
-  get     'admin/request' => 'admin#request'
+  get     'admin/help'    => 'admin#help'
 
   get     'hours'         => 'teachers#hours'
   get     'pickups'       => 'teachers#pickups'

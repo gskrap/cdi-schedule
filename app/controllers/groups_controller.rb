@@ -4,6 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
+    render '/404' if !( logged_in? && current_user.admin? )
     @group = Group.find(params[:id])
   end
 
