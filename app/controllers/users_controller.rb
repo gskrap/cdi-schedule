@@ -4,12 +4,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    render '/404' if !( logged_in? && current_user.admin? )
     @users = User.all.order('username')
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    render '/404' if !( logged_in? && current_user.admin? )
   end
 
   # GET /users/new
@@ -19,6 +21,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    render '/404' if !( logged_in? && current_user.admin? )
   end
 
   # POST /users
@@ -41,6 +44,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    render '/404' if !( logged_in? && current_user.admin? )
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to root_path, notice: 'User was successfully updated.' }
@@ -55,6 +59,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
+    render '/404' if !( logged_in? && current_user.admin? )
     @user.destroy
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
@@ -63,11 +68,13 @@ class UsersController < ApplicationController
   end
 
   def make_admin
+    render '/404' if !( logged_in? && current_user.admin? )
     User.find_by(id: params['user_id']).update_attributes(admin: true)
     redirect_to users_path
   end
 
   def remove_admin
+    render '/404' if !( logged_in? && current_user.admin? )
     User.find_by(id: params['user_id']).update_attributes(admin: false)
     redirect_to users_path
   end

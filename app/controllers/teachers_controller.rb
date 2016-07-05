@@ -14,16 +14,19 @@ class TeachersController < ApplicationController
 
   # GET /teachers/new
   def new
+    render '/404' if !( logged_in? && current_user.admin? )
     @teacher = Teacher.new
   end
 
   # GET /teachers/1/edit
   def edit
+    render '/404' if !( logged_in? && current_user.admin? )
   end
 
   # POST /teachers
   # POST /teachers.json
   def create
+    render '/404' if !( logged_in? && current_user.admin? )
     @teacher = Teacher.new(teacher_params)
 
     respond_to do |format|
@@ -40,6 +43,7 @@ class TeachersController < ApplicationController
   # PATCH/PUT /teachers/1
   # PATCH/PUT /teachers/1.json
   def update
+    render '/404' if !( logged_in? && current_user.admin? )
     respond_to do |format|
       if @teacher.update(teacher_params)
         format.html { redirect_to teachers_path, notice: 'Teacher was successfully updated.' }
@@ -54,6 +58,7 @@ class TeachersController < ApplicationController
   # DELETE /teachers/1
   # DELETE /teachers/1.json
   def destroy
+    render '/404' if !( logged_in? && current_user.admin? )
     @teacher.destroy
     respond_to do |format|
       format.html { redirect_to teachers_url, notice: 'Teacher was successfully destroyed.' }
@@ -66,11 +71,13 @@ class TeachersController < ApplicationController
   end
 
   def pickups
+    render '/404' if !( logged_in? && current_user.admin? )
     @teachers = Teacher.all.order('arriving')
     @days = Teacher.all.map{ |t| t.arriving.to_date }.uniq
   end
 
   def hours
+    render '/404' if !( logged_in? && current_user.admin? )
     @teachers = Teacher.all.order('last_name')
   end
 
