@@ -4,7 +4,9 @@
   <% @teacher.dance_classes.each do |dance_class| %>
     <div class="class-container">
       <div><h2><%= dance_class.name %></h2></div>
-      <div class="dance-style"><h7><%= dance_class.style %></h7></div>
+      <% if dance_class.style %>
+        <div class="dance-style"><h7><%= dance_class.style %></h7></div>
+      <% end %>
       <div class="inline">
         <% if dance_class.teacher %>
           <h5><%= dance_class.teacher.full_name %></h5>
@@ -12,8 +14,16 @@
         <% if dance_class.second_teacher %>
         <h5><%= dance_class.second_teacher.full_name %></h5>
         <% end %>
-        <h5><%= dance_class.location.name %></h5>
-        <h5><%= dance_class.group.name %></h5>
+        <% if dance_class.location %>
+          <h5><%= dance_class.location.name %></h5>
+        <% end %>
+        <% if dance_class.for_group_a == true && dance_class.for_group_b == true %>
+          <h5>Groups A & B</h5>
+        <% elsif dance_class.for_group_a == true %>
+          <h5>Group A</h5>
+        <% else %>
+          <h5>Group B</h5>
+        <% end %>
       </div>
       <div class="inline float-right">
         <h5><%= dance_class.start.strftime("%B %e") %></h5>
