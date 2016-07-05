@@ -14,7 +14,9 @@
         <% if dance_class.second_teacher %>
         <h5><%= dance_class.second_teacher.full_name %></h5>
         <% end %>
-        <h5><%= dance_class.location.name %></h5>
+        <% if dance_class.location %>
+          <h5><%= dance_class.location.name %></h5>
+        <% end %>
         <% if dance_class.for_group_a == true && dance_class.for_group_b == true %>
           <h5>Groups A & B</h5>
         <% elsif dance_class.for_group_a == true %>
