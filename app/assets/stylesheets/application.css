@@ -22,9 +22,9 @@
   background-attachment: fixed;
  }
 
- a:hover {
-  text-decoration: none;
- }
+a:hover {
+  background-color: transparent; text-decoration: none;
+}
 
  .center {
   text-align: center;

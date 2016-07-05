@@ -16,10 +16,10 @@
             <% end %>
             <div class="inline">
               <% if dance_class.teacher %>
-                <h5><%= dance_class.teacher.full_name %></h5>
+                <h5><%= link_to dance_class.teacher.full_name, teacher_path(dance_class.teacher), class: "teacher-link" %></h5>
               <% end %>
               <% if dance_class.second_teacher %>
-                <h5><%= dance_class.second_teacher.full_name %></h5>
+                <h5><%= link_to dance_class.second_teacher.full_name, teacher_path(dance_class.second_teacher), class: "teacher-link" %></h5>
               <% end %>
               <% if dance_class.location %>
                 <h5><%= dance_class.location.name %></h5>
@@ -58,10 +58,10 @@
             <% end %>
             <div class="inline">
               <% if dance_class.teacher %>
-                <h5><%= dance_class.teacher.full_name %></h5>
+                <h5><%= link_to dance_class.teacher.full_name, teacher_path(dance_class.teacher), class: "teacher-link" %></h5>
               <% end %>
               <% if dance_class.second_teacher %>
-                <h5><%= dance_class.second_teacher.full_name %></h5>
+                <h5><%= link_to dance_class.second_teacher.full_name, teacher_path(dance_class.second_teacher), class: "teacher-link" %></h5>
               <% end %>
               <% if dance_class.location %>
                 <h5><%= dance_class.location.name %></h5>

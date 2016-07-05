@@ -3,11 +3,13 @@
   <p id="notice"><%= notice %></p>
     <% @teachers.each do |teacher| %>
       <h2><%= link_to teacher.full_name, teacher %></h2>
+      <% if current_user && current_user.admin? %>
       <%= link_to 'Edit', edit_teacher_path(teacher), class: "btn btn-warning btn-xs" %>
       <%= link_to 'Delete', teacher, method: :delete, class: "btn btn-danger btn-xs", data: { confirm: 'Are you sure?' } %>
+      <% end %>
     <% end %>
-  <br><br>
-  <div><%= link_to 'New Teacher', new_teacher_path, class: "btn btn-primary btn-sm" %></div>
-  <br>
-  <%= link_to 'back', admin_path %>
+  <% if current_user && current_user.admin? %>
+    <br>
+    <div><%= link_to 'New Teacher', new_teacher_path, class: "btn btn-primary btn-sm" %></div>
+  <% end %>
 </div>

@@ -1,0 +1,20 @@
+<div class="jumbotron">
+  <p id="notice"><%= notice %></p>
+
+  <h1>Registered Users</h1>
+
+  <% @users.each do |user| %>
+    <div class="user-admin-line">
+      <h3 class="inline"><%= link_to user.username, user_path(user), class: "inline" %></h3>
+      <% if user.admin? %>
+        <% if user != current_user %>
+          <%= link_to "Remove Admin", user_remove_admin_path(user), class: "inline float-right btn btn-danger remove-admin-btn", data: { confirm: "Are you sure you want to remove #{user.username}'s admin priveleges?" } %>
+        <% end %>
+      <% else %>
+        <%= link_to "Make Admin", user_make_admin_path(user), class: "inline float-right btn btn-success make-admin-btn", data: { confirm: "Are you sure you want to make #{user.username} an admin?" } %>
+      <% end %>
+    </div>
+    <%= link_to 'Delete User', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
+</div>
+
