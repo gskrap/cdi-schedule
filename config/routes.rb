@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users
   resources :locations
   resources :dance_classes
   resources :teachers do
@@ -28,6 +29,9 @@ Rails.application.routes.draw do
     get 'schedule' => 'groups#schedule'
   end
 
+  get    'sessions/login'   => 'sessions#new'
+  post   'sessions'         => 'sessions#create'
+  delete 'sessions/destroy' => 'sessions#destroy'
 
   # Example resource route with options:
   #   resources :products do

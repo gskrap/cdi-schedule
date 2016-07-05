@@ -1,0 +1,9 @@
+<div class="jumbotron">
+  <h1>Sign In</h1>
+  <%= form_tag sessions_path, id: "new-session-form" %>
+    <%= render 'errors' %>
+    <%= text_field_tag :username, nil, placeholder: "Username" %><br />
+    <%= password_field_tag :password, nil, placeholder: "Password" %><br />
+    <%= submit_tag "Log in", class: 'btn btn-primary'%>
+    <%= link_to "Register New User", new_user_path, class: "btn btn-success register-btn" %>
+</div>
