@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :users
+  resources :users do
+    get 'make_admin'   => 'users#make_admin'
+    get 'remove_admin' => 'users#remove_admin'
+  end
   resources :locations
   resources :dance_classes
   resources :teachers do

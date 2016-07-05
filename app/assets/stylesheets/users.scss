@@ -1,3 +1,16 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user-admin-line {
+  width: 310px;
+}
+
+.make-admin-btn, .remove-admin-btn {
+  margin-top: 18px;
+  width: 150px;
+  text-align: center;
+}
+
+.make-admin-btn {
+  padding-right: 27px;
+}

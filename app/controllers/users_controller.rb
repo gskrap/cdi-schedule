@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = User.all.order('username')
   end
 
   # GET /users/1
@@ -59,6 +59,16 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def make_admin
+    User.find_by(id: params['user_id']).update_attributes(admin: true)
+    redirect_to users_path
+  end
+
+  def remove_admin
+    User.find_by(id: params['user_id']).update_attributes(admin: false)
+    redirect_to users_path
   end
 
   private
