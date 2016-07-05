@@ -1,6 +1,10 @@
 class Teacher < ActiveRecord::Base
   has_many :dance_classes
 
+  def dance_classes
+    DanceClass.where(teacher_id: self.id) + DanceClass.where(second_teacher_id: self.id)
+  end
+
   def arriving_day
     self.arriving.to_date
   end

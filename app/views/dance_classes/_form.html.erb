@@ -14,6 +14,7 @@
   <div class="actions">
     <%= f.text_field :name, placeholder: "Name" %><br />
     <%= f.collection_select :teacher_id, Teacher.order(:last_name),:id,:full_name, include_blank: true, prompt: "Teacher" %><br />
+    <%= f.collection_select :second_teacher_id, Teacher.order(:last_name),:id,:full_name, include_blank: true, prompt: "Teacher" %><br />
     <%= f.collection_select :location_id, Location.order(:name),:id,:name, include_blank: true, prompt: "Location" %><br />
     <%= f.collection_select :group_id, Group.order(:name),:id,:name, include_blank: true, prompt: "Group" %><br />
     <%= f.text_field :style, placeholder: "Style" %><br />

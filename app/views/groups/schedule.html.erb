@@ -10,7 +10,12 @@
             <div><h2><%= dance_class.name %></h2></div>
             <div class="dance-style"><h7><%= dance_class.style %></h7></div>
             <div class="inline">
-              <h5><%= dance_class.teacher.full_name %></h5>
+              <% if dance_class.teacher %>
+                <h5><%= dance_class.teacher.full_name %></h5>
+              <% end %>
+              <% if dance_class.second_teacher %>
+                <h5><%= dance_class.second_teacher.full_name %></h5>
+              <% end %>
               <h5><%= dance_class.location.name %></h5>
               <h5><%= dance_class.group.name %></h5>
             </div>
