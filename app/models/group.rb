@@ -1,4 +1,7 @@
 class Group < ActiveRecord::Base
   has_many :students
-  has_many :dance_classes
+
+  def dance_classes
+    DanceClass.where("for_group_#{self.name[-1].downcase} = true")
+  end
 end
