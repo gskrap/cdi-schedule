@@ -1,7 +1,9 @@
 <div class="center">
-  <% Group.all.each do |group|%>
-    <div class="btn-huge inline">
-      <div class="btn-huge-link"><h1><%= link_to group.name, group_schedule_path(group), class: "link-text" %></h1></div>
-    </div>
-  <% end %>
+  <div class="btn-huge inline">
+    <div class="btn-huge-link"><h1><%= link_to image_tag("group-a.png", size: "281x52", alt: "Group A"), group_schedule_path(Group.first), class: "link-text" %></h1></div>
+  </div>
+  <div class="btn-huge inline">
+    <div class="btn-huge-link"><h1><%= link_to image_tag("group-b.png", size: "281x52", alt: "Group B"), group_schedule_path(Group.last), class: "link-text" %></h1></div>
+  </div>
 </div>
+
