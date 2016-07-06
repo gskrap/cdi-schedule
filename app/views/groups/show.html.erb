@@ -1,5 +1,5 @@
 <div class="jumbotron mobile-jumbo">
-  <h1><%= @group.name %></h1>
+  <h1><%= image_tag("group-#{@group.name[-1].downcase}.png", size: "281x52", alt: "Group A") %></h1>
   <table id="student-list">
   <% @group.students.order('last_name').each do |student| %>
     <tr class="student-row">
