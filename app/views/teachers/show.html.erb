@@ -1,8 +1,8 @@
 <div class="jumbotron">
   <p id="notice"><%= notice %></p>
   <div id="teacher-container">
-    <% if @teacher.img_url %>
-      <%= image_tag(@teacher.img_url, size: "300x300", alt: @teacher.full_name)%>
+    <% if @teacher.img && @teacher.img.length > 1 %>
+      <%= image_tag(@teacher.img, size: "300x300", alt: @teacher.full_name)%>
     <% end %>
     <h1><%= @teacher.full_name %></h1>
     <h4><%= link_to "All #{@teacher.full_name}'s classes", teacher_dance_classes_path(@teacher), class: "teacher-link" %></h4>
