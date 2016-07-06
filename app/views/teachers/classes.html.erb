@@ -24,6 +24,12 @@
         <% else %>
           <h5>Group B</h5>
         <% end %>
+        <% if logged_in? && current_user.admin? %>
+          <div>
+            <%= link_to 'Edit', edit_dance_class_path(dance_class), class: "btn btn-warning btn-xs" %>
+            <%= link_to 'Delete', dance_class, method: :delete, class: "btn btn-danger btn-xs", data: { confirm: 'Are you sure? '}%>
+          </div>
+        <% end %>
       </div>
       <div class="inline float-right">
         <h5><%= dance_class.start.strftime("%B %e") %></h5>
