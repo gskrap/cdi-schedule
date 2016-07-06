@@ -1,15 +1,25 @@
 <div class="center">
   <div class="btn-huge inline">
-    <div class="btn-huge-link"><h1><%= link_to image_tag("group-a.png", size: "281x52", alt: "Group A"), group_schedule_path(Group.all[0]), class: "link-text" %></h1></div>
+    <div class="btn-contents">
+      <h1 class="varsity"><%= link_to "GROUP A", group_schedule_path(Group.all[0]), class: "big-link" %></h1>
+    </div>
   </div>
   <div class="btn-huge inline">
-    <div class="btn-huge-link"><h1><%= link_to image_tag("group-b.png", size: "281x52", alt: "Group B"), group_schedule_path(Group.all[1]), class: "link-text" %></h1></div>
+    <div class="btn-contents">
+      <h1 class="varsity"><%= link_to "GROUP B", group_schedule_path(Group.all[1]), class: "big-link" %></h1>
+    </div>
   </div>
   <div class="btn-huge inline">
-    <div class="btn-huge-link"><h1><%= link_to "All Men", group_schedule_path(Group.all[2]), class: "link-text" %></h1></div>
+    <div class="btn-contents">
+      <h1 class="varsity"><%= link_to "MEN", group_schedule_path(Group.all[2]), class: "big-link" %></h1>
+      <h5 class="day-text">Sunday / Monday</h5>
+    </div>
   </div>
   <div class="btn-huge inline">
-    <div class="btn-huge-link"><h1><%= link_to "Alumni", group_schedule_path(Group.all[3]), class: "link-text" %></h1></div>
+    <div class="btn-contents">
+      <h1 class="varsity"><%= link_to "ALUMNI", group_schedule_path(Group.all[2]), class: "big-link" %></h1>
+      <h5 class="day-text">Saturday</h5>
+    </div>
   </div>
 </div>
 
