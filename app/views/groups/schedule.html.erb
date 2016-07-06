@@ -1,5 +1,5 @@
 <div class="jumbotron">
-  <h1><%= image_tag("group-#{@group.name[-1].downcase}.png", size: "281x52", alt: "Group A") %></h1>
+  <h1><%= image_tag("group-#{@group.name[-1].downcase}.png", size: "281x52", alt: "Group #{@group.name[-1]}") %></h1>
   <div class="vert-top">
     <div class="inline vert-top spaced">
       <% @days.each do |day| %>
@@ -21,12 +21,17 @@
               <% if dance_class.location %>
                 <h5><%= dance_class.location.name %></h5>
               <% end %>
-              <% if dance_class.for_group_a == true && dance_class.for_group_b == true %>
-                <h5>Groups A & B</h5>
-              <% elsif dance_class.for_group_a == true %>
+              <% if dance_class.for_group_a == true %>
                 <h5>Group A</h5>
-              <% else %>
+              <% end %>
+              <% if dance_class.for_group_b == true %>
                 <h5>Group B</h5>
+              <% end %>
+              <% if dance_class.for_group_c == true %>
+                <h5>All Men</h5>
+              <% end %>
+              <% if dance_class.for_group_d == true %>
+                <h5>CDI Alumni</h5>
               <% end %>
             </div>
             <div class="inline float-right">

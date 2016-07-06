@@ -18,14 +18,27 @@
     <%= f.collection_select :location_id, Location.order(:name),:id,:name, include_blank: true, prompt: "Location" %><br />
     <%= f.text_field :style, placeholder: "Style" %><br />
     <div id="check-container">
-      <%= f.label :for_group_a, class: "check-label" do %>
-        Group A <%= f.check_box :for_group_a %>
-      <% end %>
-      <%= f.label :for_group_b, class: "check-label" do %>
-        Group B <%= f.check_box :for_group_b %>
-      <% end %>
+      <div class="check-option inline">
+        <%= f.label :for_group_a, class: "check-label" do %>
+          Group A <%= f.check_box :for_group_a %>
+        <% end %>
+      </div>
+      <div class="check-option inline">
+        <%= f.label :for_group_b, class: "check-label" do %>
+          Group B <%= f.check_box :for_group_b %>
+        <% end %>
+      </div>
+      <div class="check-option inline">
+        <%= f.label :for_group_c, class: "check-label" do %>
+          All Men <%= f.check_box :for_group_c %>
+        <% end %>
+      </div>
+      <div class="check-option inline">
+        <%= f.label :for_group_d, class: "check-label" do %>
+          All Alumni <%= f.check_box :for_group_d %>
+        <% end %>
+      </div>
     </div>
-
     <%= f.label :start %>:
     <div>
         <div>

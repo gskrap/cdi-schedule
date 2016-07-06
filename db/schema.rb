@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706165152) do
+ActiveRecord::Schema.define(version: 20160706175952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 20160706165152) do
     t.integer  "second_teacher_id"
     t.boolean  "for_group_a"
     t.boolean  "for_group_b"
+    t.boolean  "for_group_c"
+    t.boolean  "for_group_d"
   end
 
   create_table "groups", force: :cascade do |t|
