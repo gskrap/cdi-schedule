@@ -2,6 +2,7 @@
   <p id="notice"><%= notice %></p>
   <div id="teacher-container">
     <h1><%= @teacher.full_name %></h1>
+    <h4><%= link_to "All #{@teacher.full_name}'s classes", teacher_dance_classes_path(@teacher), class: "teacher-link" %></h4>
     <h3 id="teacher-bio"><%= @teacher.bio %></h3>
     <% if current_user && current_user.admin? %>
       <h5><%= @teacher.email %></h5>

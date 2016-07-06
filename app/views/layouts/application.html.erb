@@ -45,6 +45,7 @@
               <li><%= link_to 'Schedule', group_schedule_path(Group.last) %></li>
             </ul>
           </li>
+          <li><%= link_to "Faculty", teachers_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
@@ -60,7 +61,7 @@
               </ul>
             </li>
           <% else %>
-            <li><%= link_to "Staff", sessions_login_path %></li>
+            <li><%= link_to "Admin", sessions_login_path %></li>
           <% end %>
         </ul>
       </div>
