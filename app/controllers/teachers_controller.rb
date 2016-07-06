@@ -89,6 +89,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:first_name, :last_name, :email, :phone_number, :bio, :arriving, :leaving)
+      params.require(:teacher).permit(:first_name, :last_name, :email, :phone_number, :bio, :img_url, :arriving, :leaving)
     end
 end
