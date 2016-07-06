@@ -43,8 +43,14 @@
 
 .teacher-link, .teacher-link:visited {
   color: #38B800;
+  font-weight: 400;
+}
+
+.teacher-link:hover {
+  color: #38B800;
+  font-weight: 600;
 }
 
 .teacher-notes {
-  margin-top: -15px;
+  margin-top: -9px;
 }

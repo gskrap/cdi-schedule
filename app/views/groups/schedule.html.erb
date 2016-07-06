@@ -19,7 +19,7 @@
                 <h5><%= link_to dance_class.second_teacher.full_name, teacher_path(dance_class.second_teacher), class: "teacher-link" %></h5>
               <% end %>
               <% if dance_class.location %>
-                <h5><%= dance_class.location.name %></h5>
+                <h5 class="purple"><%= dance_class.location.name %></h5>
               <% end %>
               <% if dance_class.for_group_a == true %>
                 <h5>Group A</h5>
