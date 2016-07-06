@@ -72,8 +72,9 @@ class TeachersController < ApplicationController
 
   def pickups
     render '/404' if !( logged_in? && current_user.admin? )
-    @teachers = Teacher.all.order('arriving')
-    @days = Teacher.all.map{ |t| t.arriving.to_date }.uniq
+    @arriving_teachers = Teacher.all.order('arriving').where(local: false)
+    @local_teachers = Teacher.all.order('arriving').where(local: true)
+    @days = @arriving_teachers.map{ |t| t.arriving.to_date }.uniq
   end
 
   def hours
