@@ -1,5 +1,11 @@
 <div class="jumbotron">
-  <h1 class="varsity"><%= @group.name.upcase %></h1>
+  <% if @group.name == "Group A" || @group.name == "Group B" %>
+    <h1 class="varsity"><%= @group.name.upcase %></h1>
+  <% elsif @group.name == "Group C" %>
+    <h1 class="varsity">MEN</h1>
+  <% elsif @group.name == "Group D" %>
+    <h1 class="varsity">CDI ALUMNI</h1>
+  <% end %>
   <div class="vert-top">
     <div class="inline vert-top spaced">
       <% @days.each do |day| %>
