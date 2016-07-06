@@ -78,6 +78,6 @@ class DanceClassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dance_class_params
-      params.require(:dance_class).permit(:name, :teacher_id, :second_teacher_id, :location_id, :for_group_a, :for_group_b, :style, :start, :end)
+      params.require(:dance_class).permit(:name, :teacher_id, :second_teacher_id, :location_id, :for_group_a, :for_group_b, :for_group_c, :for_group_d, :style, :start, :end)
     end
 end

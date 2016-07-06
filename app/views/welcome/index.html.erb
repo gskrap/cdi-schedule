@@ -1,9 +1,15 @@
 <div class="center">
   <div class="btn-huge inline">
-    <div class="btn-huge-link"><h1><%= link_to image_tag("group-a.png", size: "281x52", alt: "Group A"), group_schedule_path(Group.first), class: "link-text" %></h1></div>
+    <div class="btn-huge-link"><h1><%= link_to image_tag("group-a.png", size: "281x52", alt: "Group A"), group_schedule_path(Group.all[0]), class: "link-text" %></h1></div>
   </div>
   <div class="btn-huge inline">
-    <div class="btn-huge-link"><h1><%= link_to image_tag("group-b.png", size: "281x52", alt: "Group B"), group_schedule_path(Group.last), class: "link-text" %></h1></div>
+    <div class="btn-huge-link"><h1><%= link_to image_tag("group-b.png", size: "281x52", alt: "Group B"), group_schedule_path(Group.all[1]), class: "link-text" %></h1></div>
+  </div>
+  <div class="btn-huge inline">
+    <div class="btn-huge-link"><h1><%= link_to image_tag("group-c.png", size: "281x52", alt: "All Men"), group_schedule_path(Group.all[2]), class: "link-text" %></h1></div>
+  </div>
+  <div class="btn-huge inline">
+    <div class="btn-huge-link"><h1><%= link_to image_tag("group-d.png", size: "281x52", alt: "Alumni"), group_schedule_path(Group.all[3]), class: "link-text" %></h1></div>
   </div>
 </div>
 
