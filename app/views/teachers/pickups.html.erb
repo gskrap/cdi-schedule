@@ -3,12 +3,24 @@
   <% @days.each do |day| %>
     <div class="pickup-container">
       <h2><%= day.strftime('%A, %B %e') %></h2>
-      <% teachers = @teachers.select{|t| t.arriving_day == day} %>
+      <% teachers = @arriving_teachers.select{|t| t.arriving_day == day} %>
       <% teachers.each do |teacher| %>
         <h4><%= teacher.arriving.strftime('%I:%M %P')+" - "+teacher.full_name %></h4>
+        <% if teacher.notes && teacher.notes.length > 1 %>
+        <h6 class="teacher-notes">&nbsp- &nbsp<%= teacher.notes %></h6>
+        <% end %>
       <% end %>
     </div>
   <% end %>
+  <div class="pickup-container">
+    <h2>Local Teachers</h2>
+    <% @local_teachers.each do |teacher| %>
+      <h4><%= teacher.full_name %></h4>
+      <% if teacher.notes && teacher.notes.length > 1 %>
+      <h6 class="teacher-notes">&nbsp- &nbsp<%= teacher.notes %></h6>
+      <% end %>
+    <% end %>
+  </div>
   <br>
   <%= link_to 'back', admin_path %>
 </div>
