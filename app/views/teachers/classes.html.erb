@@ -1,7 +1,7 @@
 <div class="jumbotron">
   <h1><%= @teacher.first_name %>'s Classes</h1>
   <p id="notice"><%= notice %></p>
-  <% @teacher.dance_classes.each do |dance_class| %>
+  <% @teacher.dance_classes.sort{ |x,y| x.start <=> y.start }.each do |dance_class| %>
     <div class="class-container">
       <div><h2><%= dance_class.name %></h2></div>
       <% if dance_class.style %>
