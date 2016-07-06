@@ -62,6 +62,12 @@
             </script>
         </div>
     </div>
+    <div class="check-option inline">
+      <%= f.label :local, class: "check-label" do %>
+        Local? <%= f.check_box :local %>
+      <% end %>
+    </div>
+    <%= f.text_area :notes, placeholder: "Notes", class: "notes-area inline" %><br />
     <%= f.submit "Submit", class: "btn btn-primary" %>
   </div>
 <% end %>
