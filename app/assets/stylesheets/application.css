@@ -15,6 +15,22 @@
  *= require bootstrap-datetimepicker
  */
 
+ @font-face {
+  font-family: 'VarsityRegular';
+  src:url('varsity_regular.eot');
+  src:url('varsity_regular.eot?#iefix') format('embedded-opentype'),
+    url('varsity_regular.svg#varsity_regular') format('svg'),
+    url('varsity_regular.woff') format('woff'),
+    url('varsity_regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+ }
+
+ .varsity {
+  font-size: 60px;
+  font-family: 'VarsityRegular';
+ }
+
  body {
   background: url("cdi-wallpaper2.jpg");
   background-size: cover;
