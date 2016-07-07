@@ -97,6 +97,100 @@
         <% end %>
       <% end %>
     </div>
+    <div class="inline vert-top spaced">
+    <h2>Men</h2>
+      <% @days.each do |day| %>
+        <div class="top-spaced"><h5 class="date-tab"><%= day.strftime('%A, %B %e') %></h5></div>
+        <% men_classes = @men_classes.select{|c| c.class_day == day} %>
+        <% men_classes.each do |dance_class| %>
+          <div class="class-container">
+            <div><h2><%= dance_class.name %></h2></div>
+            <% if dance_class.style %>
+              <div class="dance-style"><h7><%= dance_class.style %></h7></div>
+            <% end %>
+            <div class="inline">
+              <% if dance_class.teacher %>
+                <h5><%= link_to dance_class.teacher.full_name, teacher_path(dance_class.teacher), class: "teacher-link" %></h5>
+              <% end %>
+              <% if dance_class.second_teacher %>
+                <h5><%= link_to dance_class.second_teacher.full_name, teacher_path(dance_class.second_teacher), class: "teacher-link" %></h5>
+              <% end %>
+              <% if dance_class.location %>
+                <h5 class="purple"><%= dance_class.location.name %></h5>
+              <% end %>
+              <% if dance_class.for_group_a == true %>
+                <h5>Group A</h5>
+              <% end %>
+              <% if dance_class.for_group_b == true %>
+                <h5>Group B</h5>
+              <% end %>
+              <% if dance_class.for_group_c == true %>
+                <h5>All Men</h5>
+              <% end %>
+              <% if dance_class.for_group_d == true %>
+                <h5>CDI Alumni</h5>
+              <% end %>
+            </div>
+            <div class="inline float-right">
+              <h5><%= dance_class.start.strftime("%B %e") %></h5>
+              <h5><%= dance_class.start.strftime("%I:%M %P") %></h5>
+              <h5><%= dance_class.end.strftime("%I:%M %P") %></h5>
+            </div>
+            <div>
+              <%= link_to 'Edit', edit_dance_class_path(dance_class), class: "btn btn-warning btn-xs" %>
+              <%= link_to 'Delete', dance_class, method: :delete, class: "btn btn-danger btn-xs", data: { confirm: 'Are you sure? '}%>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="inline vert-top spaced">
+    <h2>Alumni</h2>
+      <% @days.each do |day| %>
+        <div class="top-spaced"><h5 class="date-tab"><%= day.strftime('%A, %B %e') %></h5></div>
+        <% alumni_classes = @alumni_classes.select{|c| c.class_day == day} %>
+        <% alumni_classes.each do |dance_class| %>
+          <div class="class-container">
+            <div><h2><%= dance_class.name %></h2></div>
+            <% if dance_class.style %>
+              <div class="dance-style"><h7><%= dance_class.style %></h7></div>
+            <% end %>
+            <div class="inline">
+              <% if dance_class.teacher %>
+                <h5><%= link_to dance_class.teacher.full_name, teacher_path(dance_class.teacher), class: "teacher-link" %></h5>
+              <% end %>
+              <% if dance_class.second_teacher %>
+                <h5><%= link_to dance_class.second_teacher.full_name, teacher_path(dance_class.second_teacher), class: "teacher-link" %></h5>
+              <% end %>
+              <% if dance_class.location %>
+                <h5 class="purple"><%= dance_class.location.name %></h5>
+              <% end %>
+              <% if dance_class.for_group_a == true %>
+                <h5>Group A</h5>
+              <% end %>
+              <% if dance_class.for_group_b == true %>
+                <h5>Group B</h5>
+              <% end %>
+              <% if dance_class.for_group_c == true %>
+                <h5>All Men</h5>
+              <% end %>
+              <% if dance_class.for_group_d == true %>
+                <h5>CDI Alumni</h5>
+              <% end %>
+            </div>
+            <div class="inline float-right">
+              <h5><%= dance_class.start.strftime("%B %e") %></h5>
+              <h5><%= dance_class.start.strftime("%I:%M %P") %></h5>
+              <h5><%= dance_class.end.strftime("%I:%M %P") %></h5>
+            </div>
+            <div>
+              <%= link_to 'Edit', edit_dance_class_path(dance_class), class: "btn btn-warning btn-xs" %>
+              <%= link_to 'Delete', dance_class, method: :delete, class: "btn btn-danger btn-xs", data: { confirm: 'Are you sure? '}%>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <br><br>
   <%= link_to 'back', admin_path %>

@@ -7,6 +7,8 @@ class DanceClassesController < ApplicationController
     render '/404' if !( logged_in? && current_user.admin? )
     @group_a_classes = Group.find_by(name: "Group A").dance_classes.order('start')
     @group_b_classes = Group.find_by(name: "Group B").dance_classes.order('start')
+    @men_classes = Group.find_by(name: "Group C").dance_classes.order('start')
+    @alumni_classes = Group.find_by(name: "Group D").dance_classes.order('start')
     @days = DanceClass.all.map{ |c| c.start.to_date }.uniq
   end
 
@@ -78,6 +80,6 @@ class DanceClassesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dance_class_params
-      params.require(:dance_class).permit(:name, :teacher_id, :second_teacher_id, :location_id, :for_group_a, :for_group_b, :for_group_c, :for_group_d, :style, :start, :end)
+      params.require(:dance_class).permit(:name, :teacher_id, :second_teacher_id, :location_id, :for_group_a, :for_group_b, :for_group_c, :for_group_d, :style, :start, :end, :is_hidden)
     end
 end

@@ -50,11 +50,24 @@
 }
 
 .check-label {
-  font-size: 10px;
+  font-size: 8px;
 }
 
 .check-option {
   text-align: center;
   background-color: white;
-  width: 74px;
+  width: 58px;
+}
+
+.hidden-check {
+  background-color: #9954BB;
+  color: white;
+}
+
+input[type='checkbox'] {
+  -ms-transform: scale(1.4); /* IE */
+  -moz-transform: scale(1.4); /* FF */
+  -webkit-transform: scale(1.4); /* Safari and Chrome */
+  -o-transform: scale(1.4); /* Opera */
+  padding: 10px;
 }

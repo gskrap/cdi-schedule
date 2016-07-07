@@ -38,6 +38,11 @@
           All Alumni <%= f.check_box :for_group_d %>
         <% end %>
       </div>
+      <div class="check-option hidden-check inline">
+        <%= f.label :is_hidden, class: "check-label" do %>
+          Hidden? <%= f.check_box :is_hidden %>
+        <% end %>
+      </div>
     </div>
     <%= f.label :start %>:
     <div>
