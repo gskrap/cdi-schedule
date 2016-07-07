@@ -99,7 +99,7 @@
     </div>
     <div class="inline vert-top spaced">
     <h2>Men</h2>
-      <% @days.each do |day| %>
+      <% @men_days.each do |day| %>
         <div class="top-spaced"><h5 class="date-tab"><%= day.strftime('%A, %B %e') %></h5></div>
         <% men_classes = @men_classes.select{|c| c.class_day == day} %>
         <% men_classes.each do |dance_class| %>
@@ -146,7 +146,7 @@
     </div>
     <div class="inline vert-top spaced">
     <h2>Alumni</h2>
-      <% @days.each do |day| %>
+      <% @alumni_days.each do |day| %>
         <div class="top-spaced"><h5 class="date-tab"><%= day.strftime('%A, %B %e') %></h5></div>
         <% alumni_classes = @alumni_classes.select{|c| c.class_day == day} %>
         <% alumni_classes.each do |dance_class| %>

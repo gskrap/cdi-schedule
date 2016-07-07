@@ -10,6 +10,8 @@ class DanceClassesController < ApplicationController
     @men_classes = Group.find_by(name: "Group C").dance_classes.order('start')
     @alumni_classes = Group.find_by(name: "Group D").dance_classes.order('start')
     @days = DanceClass.all.map{ |c| c.start.to_date }.uniq
+    @men_days = @men_classes.map{ |c| c.start.to_date }.uniq
+    @alumni_days = @alumni_classes.map{ |c| c.start.to_date }.uniq
   end
 
   # GET /dance_classes/1
