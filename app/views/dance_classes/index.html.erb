@@ -1,9 +1,18 @@
 <div class="jumbotron">
   <h1>Classes</h1>
-  <%= link_to 'Add Class', new_dance_class_path, class: "btn btn-primary btn-sm" %>
+  <div>
+    <button id="group-a-btn" class="class-sort-btn btn btn-success btn-sm">Group A</button>
+    <button id="group-b-btn" class="class-sort-btn btn btn-success btn-sm">Group B</button>
+    <button id="men-btn" class="class-sort-btn btn btn-success btn-sm">Men</button>
+    <button id="alumni-btn" class="class-sort-btn btn btn-success btn-sm">Alumni</button>
+  </div><br>
+  <div>
+    <%= link_to 'Add Class', new_dance_class_path, class: "btn btn-primary class-nav-btn" %>
+    <button id="show-all-btn" class="btn btn-success class-nav-btn">All Classes</button>
+  </div>
   <p id="notice"><%= notice %></p>
   <div class="vert-top">
-    <div class="inline vert-top spaced">
+    <div id="group-a-column" class="inline vert-top spaced class-column">
     <h2>Group A</h2>
       <% @days.each do |day| %>
         <div class="top-spaced"><h5 class="date-tab"><%= day.strftime('%A, %B %e') %></h5></div>
@@ -50,7 +59,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="inline vert-top spaced">
+    <div id="group-b-column" class="inline vert-top spaced class-column">
     <h2>Group B</h2>
       <% @days.each do |day| %>
         <div class="top-spaced"><h5 class="date-tab"><%= day.strftime('%A, %B %e') %></h5></div>
@@ -97,7 +106,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="inline vert-top spaced">
+    <div id="men-column" class="inline vert-top spaced class-column">
     <h2>Men</h2>
       <% @men_days.each do |day| %>
         <div class="top-spaced"><h5 class="date-tab"><%= day.strftime('%A, %B %e') %></h5></div>
@@ -144,7 +153,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="inline vert-top spaced">
+    <div id="alumni-column" class="inline vert-top spaced class-column">
     <h2>Alumni</h2>
       <% @alumni_days.each do |day| %>
         <div class="top-spaced"><h5 class="date-tab"><%= day.strftime('%A, %B %e') %></h5></div>
