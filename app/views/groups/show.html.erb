@@ -1,5 +1,5 @@
 <div class="jumbotron mobile-jumbo">
-  <h1><%= image_tag("group-#{@group.name[-1].downcase}.png", size: "281x52", alt: "Group #{@group.name[-1]}") %></h1>
+  <h1 class="varsity"><%= @group.name.upcase %></h1>
   <table id="student-list">
   <% @group.students.order('last_name').each do |student| %>
     <tr class="student-row">
@@ -8,6 +8,9 @@
     </tr>
     <% end %>
   </table>
+  <br>
+  <%= mail_to "cdiauditions@gmail.com", "Email Attendance", class: "btn btn-success" %>
+  <br>
   <% if current_user && current_user.admin? %>
     <br>
     <%= form_tag("/students", method: "post") do %>

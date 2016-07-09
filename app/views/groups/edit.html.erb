@@ -1,10 +1,10 @@
 <div class="jumbotron mobile-jumbo">
-  <h1><%= @group.name %></h1>
+  <h1 class="varsity"><%= @group.name.upcase %></h1>
   <table id="student-list">
   <% @group.students.order('last_name').each do |student| %>
   <tr class="student-row">
     <td class="student-delete-btn"><%= button_to "delete", {controller: :students, action: 'delete', id: student.id, group_id: @group.id }, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></td>
-    <td class="student-name"><p><%= student.full_name %></p></td>
+    <td class="student-name"><p>&nbsp <%= student.full_name %></p></td>
   </tr>
   <% end %>
   </table>
