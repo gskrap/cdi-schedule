@@ -7,7 +7,7 @@
       <td class="student-name">
         <p>&nbsp <%= student.full_name %></p>
         <% if student.phone_number %>
-          <h5 class="student-phone"><%= student.phone_number %></h5>
+          <h5 class="student-phone"><%= phone_number_link(student.phone_number) %></h5>
         <% end %>
       </td>
     </tr>

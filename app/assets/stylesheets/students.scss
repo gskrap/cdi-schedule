@@ -20,6 +20,9 @@ td {
 .student-phone {
   margin-top: 0px;
   float: right;
+  a:link {
+    text-decoration: none;
+  }
 }
 
 .student-input {
