@@ -4,17 +4,23 @@
   <% @group.students.order('last_name').each do |student| %>
     <tr class="student-row">
       <td class="attendance-btn"><button class="btn btn-default">Here?</button></td>
-      <td class="student-name"><p>&nbsp <%= student.full_name %></p></td>
+      <td class="student-name">
+        <p>&nbsp <%= student.full_name %></p>
+        <% if student.phone_number %>
+          <h5 class="student-phone"><%= student.phone_number %></h5>
+        <% end %>
+      </td>
     </tr>
     <% end %>
   </table>
   <br>
-  <%= mail_to "cdiauditions@gmail.com", "Email Attendance", class: "btn btn-success" %>
+  <%= mail_to "cdiauditions@gmail.com", "Email Attendance", class: "btn btn-success btn-sm email-btn" %>
   <br>
   <% if current_user && current_user.admin? %>
     <br>
-    <%= form_tag("/students", method: "post") do %>
-      <%= text_field_tag(:name, nil, placeholder: "name", class: "student-input") %>
+    <%= form_tag("/students", {method: "post", id: 'new-student-form'}) do %>
+      <%= text_field_tag(:name, nil, placeholder: "name", class: "student-input") %><br />
+      <%= text_field_tag(:phone_number, nil, placeholder: "phone", class: "student-input") %><br />
       <%= hidden_field_tag(:group_id, @group.id) %>
       <%= submit_tag("Add Student", class: "btn btn-primary btn-sm") %>
     <% end %>

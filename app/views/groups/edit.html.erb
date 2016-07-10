@@ -1,16 +1,25 @@
 <div class="jumbotron mobile-jumbo">
   <h1 class="varsity"><%= @group.name.upcase %></h1>
   <table id="student-list">
-  <% @group.students.order('last_name').each do |student| %>
-  <tr class="student-row">
-    <td class="student-delete-btn"><%= button_to "delete", {controller: :students, action: 'delete', id: student.id, group_id: @group.id }, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></td>
-    <td class="student-name"><p>&nbsp <%= student.full_name %></p></td>
-  </tr>
+    <% @group.students.order('last_name').each do |student| %>
+    <tr class="student-row">
+      <td class="student-delete-btn"><%= button_to "delete", {controller: :students, action: 'delete', id: student.id, group_id: @group.id }, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %></td>
+      <td class="student-name"><p>&nbsp <%= student.full_name %></p></td>
+    </tr>
+    <tr>
+      <td  class='phone-row' colspan='2'>
+        <%= form_tag("/students/#{student.id}", method: "put") do %>
+          <%= text_field_tag(:phone_number, student.phone_number, placeholder: "phone", class: "student-input") %>
+          <%= submit_tag("Update Phone", class: "btn btn-success btn-sm") %>
+        <% end %>
+      </td>
+    </tr>
   <% end %>
   </table>
   <br>
-  <%= form_tag("/students", method: "post") do %>
-    <%= text_field_tag(:name, nil, placeholder: "name", class: "student-input") %>
+  <%= form_tag("/students", {method: "post", id: 'new-student-form'}) do %>
+    <%= text_field_tag(:name, nil, placeholder: "name", class: "student-input") %><br />
+    <%= text_field_tag(:phone_number, nil, placeholder: "phone", class: "student-input") %><br />
     <%= hidden_field_tag(:group_id, @group.id) %>
     <%= submit_tag("Add Student", class: "btn btn-primary btn-sm") %>
   <% end %>

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
   post    'students'      => 'students#post'
   delete  'students'      => 'students#delete'
+  put     'students/:id'      => 'students#update'
   get     'admin'         => 'admin#show'
   get     'admin/help'    => 'admin#help'
 
