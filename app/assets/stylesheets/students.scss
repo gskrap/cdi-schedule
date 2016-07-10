@@ -17,6 +17,11 @@ td {
   margin: 0px;
 }
 
+.student-phone {
+  margin-top: 0px;
+  float: right;
+}
+
 .student-input {
   height: 32px;
   margin-top: 1px;
@@ -24,4 +29,14 @@ td {
 
 .btn-sm {
   margin-bottom: 2px;
+}
+
+.phone-row {
+  vertical-align: top;
+  padding: 0px;
+  padding-bottom: 20px;
+}
+
+.email-btn {
+  width: 310px;
 }
