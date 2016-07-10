@@ -2,7 +2,7 @@
   <h1 class="varsity"><%= @group.name.upcase %></h1>
   <table id="student-list">
   <% @group.students.order('last_name').each do |student| %>
-    <tr class="student-row">
+    <tr class="student-row not-attending">
       <% if (logged_in? && (current_user.admin? || current_user.work_study?)) %>
         <td class="attendance-btn"><button class="btn btn-default">Here?</button></td>
       <% end %>
@@ -19,6 +19,7 @@
   </table>
   <br>
   <% if (logged_in? && (current_user.admin? || current_user.work_study?)) %>
+    <%= text_field(:class_name, :field, placeholder: "name of class", class: "student-input") %><br />
     <%= mail_to "cdiauditions@gmail.com", "Email Attendance", class: "btn btn-success btn-sm email-btn" %>
   <% end %>
   <br>
