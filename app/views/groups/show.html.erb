@@ -5,7 +5,7 @@
     <tr class="student-row">
       <td class="attendance-btn"><button class="btn btn-default">Here?</button></td>
       <td class="student-name">
-        <p>&nbsp <%= student.full_name %></p>
+        <div class="full-name"><p><%= student.full_name %></p></div>
         <% if student.phone_number %>
           <h5 class="student-phone"><%= phone_number_link(student.phone_number) %></h5>
         <% end %>

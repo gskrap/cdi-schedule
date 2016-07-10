@@ -4,7 +4,9 @@
     <% @group.students.order('last_name').each do |student| %>
     <tr class="student-row">
       <td class="student-delete-btn"><%= button_to "delete", {controller: :students, action: 'delete', id: student.id, group_id: @group.id }, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %></td>
-      <td class="student-name"><p>&nbsp <%= student.full_name %></p></td>
+      <td class="student-name">
+        <div class="full-name"><p><%= student.full_name %></p></div>
+      </td>
     </tr>
     <tr>
       <td  class='phone-row' colspan='2'>
