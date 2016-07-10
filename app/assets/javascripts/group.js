@@ -9,7 +9,12 @@ $(document).ready(function(){
     event.preventDefault();
     var email = "cdiauditions@gmail.com";
     var subject = document.getElementById('class_name_field').value + " - Attendance - " + $($('.varsity')[0]).text();
-    var emailBody = "The following students are absent:\n";
-    window.location = 'mailto:' + email + '?subject=' + subject + '&body=' +   emailBody;
+    var emailBody = "The following students are absent:%0D%0A%0D%0A";
+    for( var i = 0; i < $('.not-attending').length; i++ ) {
+      emailBody += $($($('.not-attending')[i]).find('.student-name > .full-name > p')[0]).text();
+      emailBody += "%0D%0A"
+      emailBody += "Reason: %0D%0A%0D%0A"
+    }
+    window.location = 'mailto:' + email + '?subject=' + subject + '&body=' + emailBody;
   });
 })
