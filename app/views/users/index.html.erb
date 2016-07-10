@@ -5,13 +5,18 @@
 
   <% @users.each do |user| %>
     <div class="user-admin-line">
-      <h3 class="inline"><%= link_to user.username, user_path(user), class: "inline" %></h3>
-      <% if user.admin? %>
-        <% if user != current_user %>
-          <%= link_to "Remove Admin", user_remove_admin_path(user), class: "inline float-right btn btn-danger remove-admin-btn", data: { confirm: "Are you sure you want to remove #{user.username}'s admin priveleges?" } %>
+      <h3 class="inline"><%= user.username %></h3><br />
+      <% if user != current_user %>
+        <% if user.admin? %>
+          <%= link_to "Remove Admin", user_remove_admin_path(user), class: "inline btn btn-danger btn-sm remove-admin-btn", data: { confirm: "Are you sure you want to remove #{user.username}'s admin priveleges?" } %>
+        <% else %>
+          <%= link_to "Make Admin", user_make_admin_path(user), class: "inline btn btn-success btn-sm make-admin-btn", data: { confirm: "Are you sure you want to make #{user.username} an admin?" } %>
         <% end %>
-      <% else %>
-        <%= link_to "Make Admin", user_make_admin_path(user), class: "inline float-right btn btn-success make-admin-btn", data: { confirm: "Are you sure you want to make #{user.username} an admin?" } %>
+        <% if user.work_study? %>
+          <%= link_to "Remove Work Study", user_remove_work_study_path(user), class: "inline btn btn-danger btn-sm remove-admin-btn", data: { confirm: "Are you sure you want to remove #{user.username}'s work study status?" } %>
+        <% else %>
+          <%= link_to "Make Work Study", user_make_work_study_path(user), class: "inline btn btn-success btn-sm make-admin-btn", data: { confirm: "Are you sure you want to make #{user.username} a work study" } %>
+        <% end %>
       <% end %>
     </div>
     <%= link_to 'Delete User', user, method: :delete, data: { confirm: 'Are you sure?' } %>

@@ -79,6 +79,18 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
+  def make_work_study
+    render '/404' if !( logged_in? && current_user.admin? )
+    User.find_by(id: params['user_id']).update_attributes(work_study: true)
+    redirect_to users_path
+  end
+
+  def remove_work_study
+    render '/404' if !( logged_in? && current_user.admin? )
+    User.find_by(id: params['user_id']).update_attributes(work_study: false)
+    redirect_to users_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

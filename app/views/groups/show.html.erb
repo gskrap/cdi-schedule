@@ -3,18 +3,24 @@
   <table id="student-list">
   <% @group.students.order('last_name').each do |student| %>
     <tr class="student-row">
-      <td class="attendance-btn"><button class="btn btn-default">Here?</button></td>
+      <% if (logged_in? && (current_user.admin? || current_user.work_study?)) %>
+        <td class="attendance-btn"><button class="btn btn-default">Here?</button></td>
+      <% end %>
       <td class="student-name">
         <div class="full-name"><p><%= student.full_name %></p></div>
-        <% if student.phone_number %>
-          <h5 class="student-phone"><%= phone_number_link(student.phone_number) %></h5>
+        <% if (logged_in? && (current_user.admin? || current_user.work_study?)) %>
+          <% if student.phone_number %>
+            <h5 class="student-phone"><%= phone_number_link(student.phone_number) %></h5>
+          <% end %>
         <% end %>
       </td>
     </tr>
     <% end %>
   </table>
   <br>
-  <%= mail_to "cdiauditions@gmail.com", "Email Attendance", class: "btn btn-success btn-sm email-btn" %>
+  <% if (logged_in? && (current_user.admin? || current_user.work_study?)) %>
+    <%= mail_to "cdiauditions@gmail.com", "Email Attendance", class: "btn btn-success btn-sm email-btn" %>
+  <% end %>
   <br>
   <% if current_user && current_user.admin? %>
     <br>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :users do
-    get 'make_admin'   => 'users#make_admin'
-    get 'remove_admin' => 'users#remove_admin'
+    get 'make_admin'        => 'users#make_admin'
+    get 'remove_admin'      => 'users#remove_admin'
+    get 'make_work_study'   => 'users#make_work_study'
+    get 'remove_work_study' => 'users#remove_work_study'
   end
   resources :locations
   resources :dance_classes
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
   post    'students'      => 'students#post'
   delete  'students'      => 'students#delete'
-  put     'students/:id'      => 'students#update'
+  put     'students/:id'  => 'students#update'
   get     'admin'         => 'admin#show'
   get     'admin/help'    => 'admin#help'
 
