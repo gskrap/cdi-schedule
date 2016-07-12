@@ -1,0 +1,44 @@
+<div class="jumbotron">
+  <div class="inline vert-top spaced">
+    <% @days.each do |day| %>
+      <div class="top-spaced"><h5 class="date-tab"><%= day.strftime('%A, %B %e') %></h5></div>
+      <% classes = @classes.select{|c| c.class_day == day} %>
+      <% classes.each do |dance_class| %>
+        <div class="class-container">
+          <div><h2><%= link_to dance_class.name, dance_class_headshots_path(dance_class), class: "headshot-link" %></h2></div>
+          <% if dance_class.style %>
+            <div class="dance-style"><h7><%= dance_class.style %></h7></div>
+          <% end %>
+          <div class="inline">
+            <% if dance_class.teacher %>
+              <h5><%= link_to dance_class.teacher.full_name, teacher_path(dance_class.teacher), class: "teacher-link" %></h5>
+            <% end %>
+            <% if dance_class.second_teacher %>
+              <h5><%= link_to dance_class.second_teacher.full_name, teacher_path(dance_class.second_teacher), class: "teacher-link" %></h5>
+            <% end %>
+            <% if dance_class.location %>
+              <h5 class="purple"><%= dance_class.location.name %></h5>
+            <% end %>
+            <% if dance_class.for_group_a == true %>
+              <h5>Group A</h5>
+            <% end %>
+            <% if dance_class.for_group_b == true %>
+              <h5>Group B</h5>
+            <% end %>
+            <% if dance_class.for_group_c == true %>
+              <h5>All Men</h5>
+            <% end %>
+            <% if dance_class.for_group_d == true %>
+              <h5>CDI Alumni</h5>
+            <% end %>
+          </div>
+          <div class="inline float-right">
+            <h5><%= dance_class.start.strftime("%B %e") %></h5>
+            <h5><%= dance_class.start.strftime("%I:%M %P") %></h5>
+            <h5><%= dance_class.end.strftime("%I:%M %P") %></h5>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
