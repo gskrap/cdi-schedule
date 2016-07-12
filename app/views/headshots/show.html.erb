@@ -1,5 +1,6 @@
 <div class="jumbotron">
-  <h1 class="varsity"><%= @class.name.upcase %></h1>
+  <h1 class="varsity-small"><%= @class.name.upcase %></h1>
+  <h4><%= @class.style %></h4><br />
   <div class="headshot-time">
     <h3 class="inline"><%= @class.start.strftime("%B %e") %>, </h3>
     <h3 class="inline"><%= @class.start.strftime("%I:%M %P") %> - </h3>
@@ -8,7 +9,7 @@
     <% if (logged_in? && (current_user.admin? || current_user.work_study?)) %>
     <%= form_tag("/headshots/#{@head_sched.id}", method: "put") do %>
       <%= text_area_tag(:body, @head_sched.body, placeholder: "body", class: "headshots-sched-input") %><br />
-      <%= submit_tag("Submit", class: "btn btn-success btn-sm") %>
+      <%= submit_tag("Submit", class: "btn btn-success btn-sm headshots-btn") %>
     <% end %>
   <% else %>
     <div class="headshots-list">
