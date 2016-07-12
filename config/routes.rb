@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     get 'remove_work_study' => 'users#remove_work_study'
   end
   resources :locations
-  resources :dance_classes
+  resources :dance_classes do
+    get 'headshots'     => 'headshots#show'
+  end
   resources :teachers do
     get 'dance_classes' => 'teachers#classes'
   end
@@ -28,6 +30,7 @@ Rails.application.routes.draw do
   get     'pickups'       => 'teachers#pickups'
 
   get     'headshots'     => 'headshots#index'
+  put     'headshots/:id' => 'headshots#update'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

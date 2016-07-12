@@ -5,7 +5,7 @@
       <% classes = @classes.select{|c| c.class_day == day} %>
       <% classes.each do |dance_class| %>
         <div class="class-container">
-          <div><h2><%= dance_class.name %></h2></div>
+          <div><h2><%= link_to dance_class.name, dance_class_headshots_path(dance_class), class: "headshot-link" %></h2></div>
           <% if dance_class.style %>
             <div class="dance-style"><h7><%= dance_class.style %></h7></div>
           <% end %>

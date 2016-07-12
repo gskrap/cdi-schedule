@@ -1,0 +1,13 @@
+<div class="jumbotron">
+  <h1 class="varsity"><%= @class.name.upcase %></h1>
+    <% if (logged_in? && (current_user.admin? || current_user.work_study?)) %>
+    <%= form_tag("/headshots/#{@head_sched.id}", method: "put") do %>
+      <%= text_area_tag(:body, @head_sched.body, placeholder: "body", class: "headshots-sched-input") %><br />
+      <%= submit_tag("Submit", class: "btn btn-success btn-sm") %>
+    <% end %>
+  <% else %>
+    <div class="headshots-list">
+      <%= text_area_tag(:body, @head_sched.body, placeholder: "body", readonly: true, class: "headshots-sched-input") %><br />
+    </div>
+  <% end %>
+</div>

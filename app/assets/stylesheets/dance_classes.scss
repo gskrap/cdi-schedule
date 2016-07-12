@@ -68,3 +68,14 @@ input[type='checkbox'] {
   -o-transform: scale(1.4); /* Opera */
   padding: 10px;
 }
+
+.headshot-link, .headshot-link:visited {
+  color: #38B800;
+  font-weight: 400;
+}
+
+.headshots-sched-input {
+  width: 310px;
+  height: 800px;
+  resize: none;
+}
