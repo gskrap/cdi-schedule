@@ -31,6 +31,11 @@
   font-family: 'VarsityRegular';
  }
 
+ .varsity-small {
+  font-size: 50px;
+  font-family: 'VarsityRegular';
+ }
+
  body {
   background: url("cdi-wallpaper2.jpg");
   background-size: cover;
