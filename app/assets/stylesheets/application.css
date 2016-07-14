@@ -26,6 +26,14 @@
   font-style: normal;
  }
 
+ .jumbotron {
+  margin-top: 10px;
+ }
+
+ .main-btn-container {
+  margin-top: 60px;
+ }
+
  .varsity {
   font-size: 60px;
   font-family: 'VarsityRegular';
