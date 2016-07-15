@@ -1,28 +1,14 @@
-== README
+== CDI Schedule
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Built with Ruby on Rails back end and Bootstrap front end frameworks.
 
-Things you may want to cover:
+Custom made to coordinate the 2016 Commercial Dance Intensive at UNCSA, with three distinct user permission levels. Administrators can create and modify classes for seamless communication with students, who can easily track and plan where they're supposed to be at all times.
 
-* Ruby version
+Additional admin features include:
 
-* System dependencies
+* Tracking teacher hours
 
-* Configuration
+* Organizing teacher airport pickup schedules
 
-* Database creation
+* Class roll call with conditionally-generated report email based on class attendance
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
